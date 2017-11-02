@@ -1,7 +1,7 @@
-FROM  ruby:2.4.1-alpine3.6
+FROM  ruby:alpine
 LABEL maintainer=jon@jaggersoft.com
 
-RUN ruby --version | grep -q 2.4.1
+RUN ruby --version | grep -q 2.4.2
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # install tini (for pid 1 zombie reaping)
