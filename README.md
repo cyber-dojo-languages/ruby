@@ -1,4 +1,5 @@
-# ruby 2.5
+# Ruby
 
-![Build Status](https://travis-ci.org/cyber-dojo-languages/ruby-2.5.svg?branch=master)
+![Build Status](https://travis-ci.org/cyber-dojo-languages/ruby.svg?branch=master)
 
+Version=2.5
