@@ -13,7 +13,7 @@ jobs:
           name: Build image, test it, push it dockerhub, notify dependents
           command: |
             set -e
-            SCRIPT=build_test_push.sh
+            SCRIPT=build_test_push_notify.sh
             curl -O --fail ${CIRCLECI_SCRIPT_DIR}/${SCRIPT}
             chmod 700 ./${SCRIPT}
             echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
