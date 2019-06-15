@@ -10,11 +10,11 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Build image, test it, push it dockerhub
+          name: Build image, test it, push it dockerhub, notify dependents
           command: |
             set -e
             SCRIPT=build_test_push.sh
-            curl -O --fail https://raw.githubusercontent.com/cyber-dojo-languages/image_builder/master/${SCRIPT}
+            curl -O --fail ${CIRCLECI_SCRIPT_DIR}/${SCRIPT}
             chmod 700 ./${SCRIPT}
             echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
             ./${SCRIPT}
