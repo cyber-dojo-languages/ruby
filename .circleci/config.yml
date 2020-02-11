@@ -11,7 +11,7 @@ jobs:
 
 workflows:
   version: 2
-  nightly:
+  every-5-days:
     triggers:
       - schedule:
           cron: "0 0 1,5,10,15,20,25 * *"
