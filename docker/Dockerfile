@@ -13,7 +13,5 @@ RUN apk add --update coreutils bash tar file
 
 LABEL maintainer=jon@jaggersoft.com
 
-RUN gem install simplecov hirb
-ARG SIMPLECOV_DIR='/usr/local/bundle/gems/simplecov-0.18.1/lib'
-RUN [ -d ${SIMPLECOV_DIR} ]
-COPY simplecov-console.rb ${SIMPLECOV_DIR}
+COPY install.sh .
+RUN ./install.sh && rm ./install.sh
