@@ -10,6 +10,8 @@ RUN (grep -q sandbox:x:41966 /etc/passwd) || (adduser -D -g "" -h /home/sandbox 
 RUN apk add --update coreutils bash tar file
 ARG COMMIT_SHA
 ENV SHA=${COMMIT_SHA}
+ARG GIT_REPO_URL
+ENV GIT_URL=${GIT_REPO_URL}
 # END of extra commands to fulfil runner's requirements
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
