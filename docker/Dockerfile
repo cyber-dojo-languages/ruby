@@ -8,10 +8,8 @@ FROM ruby:alpine
 RUN (getent group sandbox) || (addgroup -g 51966 sandbox)
 RUN (grep -q sandbox:x:41966 /etc/passwd) || (adduser -D -g "" -h /home/sandbox -G sandbox -s /bin/bash -u 41966 sandbox)
 RUN apk add --update coreutils bash tar file
-ARG COMMIT_SHA
-ENV SHA=${COMMIT_SHA}
-ARG GIT_REPO_URL
-ENV GIT_URL=${GIT_REPO_URL}
+ARG GIT_COMMIT_SHA
+ENV SHA=${GIT_COMMIT_SHA}
 # END of extra commands to fulfil runner's requirements
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
