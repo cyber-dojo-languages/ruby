@@ -5,8 +5,8 @@ readonly JSON=`cat ${MY_DIR}/docker/image_name.json`
 [[ ${JSON} =~ ${REGEX} ]]
 readonly IMAGE_NAME="${BASH_REMATCH[1]}"
 
-readonly EXPECTED="3.1.2p20"
-readonly ACTUAL=$(docker run --rm -it ${IMAGE_NAME} sh -c 'ruby --version')
+readonly EXPECTED="ruby 3.3.5 (2024-09-03 revision ef084cc8f4)"
+readonly ACTUAL=$(docker run --rm -i ${IMAGE_NAME} sh -c 'ruby --version')
 
 if echo "${ACTUAL}" | grep -q "${EXPECTED}"; then
   echo "VERSION CONFIRMED as ${EXPECTED}"
