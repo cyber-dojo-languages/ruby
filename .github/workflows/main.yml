@@ -5,7 +5,7 @@ on:
     branches:
       - master
   schedule:
-    - cron: '20 15 * * FRI'
+    - cron: '35 * * * *'
 
 env:
   PACKAGES_TOKEN: ${{ secrets.GITHUB_TOKEN }}
