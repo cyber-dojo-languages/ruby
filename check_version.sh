@@ -1,11 +1,13 @@
-#!/bin/bash -Eeu
+#!/usr/bin/env bash
+set -Eeu
+
 readonly MY_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 readonly REGEX="image_name\": \"(.*)\""
 readonly JSON=`cat ${MY_DIR}/docker/image_name.json`
 [[ ${JSON} =~ ${REGEX} ]]
 readonly IMAGE_NAME="${BASH_REMATCH[1]}"
 
-readonly EXPECTED="ruby 3.4.1"
+readonly EXPECTED="ruby 4.0.1"
 readonly ACTUAL=$(docker run --rm -i ${IMAGE_NAME} sh -c 'ruby --version')
 
 if echo "${ACTUAL}" | grep -q "${EXPECTED}"; then
